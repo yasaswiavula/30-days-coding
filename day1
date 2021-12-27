@@ -1,6 +1,35 @@
 #big o- time complexity and space complexity examples
+"""
+Rule 1: Always worst Case
 
-"""1. worst case"""
+Rule 2: Remove Constants
+
+Rule 3:
+
+Different inputs should have different variables: O(a + b).
+A and B arrays nested would be: O(a * b)
++ for steps in order
+
+* for nested steps
+
+Rule 4: Drop Non-dominant terms
+
+
+
+"""
+
+
+# Searching an element in a list/array in python
+def search(arr, x):
+    for i in range(len(arr)):
+        if arr[i] == x: # If x is present then return its location else return -1
+            return i
+    return -1
+a=[1,2,4,5,6] 
+print(search(a,3)) #O(n)
+#here we use rule 1
+# worst case is O(n), best case is O(1) as 3 might be in first place but we consider only worst case that is 3 being in the last place.
+
 # factorial of given number
 def factorial(n):
     if n < 0:
@@ -15,4 +44,52 @@ def factorial(n):
         return fact
  num = 5;
 print("Factorial of",num,"is",
-factorial(num)) #O(n+n+n)=O(3n)=O(n)
+factorial(num)) #O(n)
+#rule 2
+#O(n+n+n)=O(3n)=O(n) 
+
+# Function to check whether the given number is Armstrong number or not
+def isArmstrong(x):
+    n = order(x) #O(1)
+    temp = x #O(1)
+    sum1 = 0 #O(1)
+      
+    while (temp != 0): #O(4n)
+        r = temp % 10 
+        sum1 = sum1 + power(r, n)
+        temp = temp // 10
+  
+    # If condition satisfies
+    return (sum1 == x)
+    
+x = 153
+print(isArmstrong(x)) #O(4+4n)=O(n)(rule2)
+
+# Python program to print prime factors
+import math
+ 
+# A function to print all prime factors of a given number n
+def primeFactors(n):
+     
+    # Print the number of two's that divide n
+    while n % 2 == 0: #O(n)
+        print 2,
+        n = n / 2
+         
+    # n must be odd at this point so a skip of 2 ( i = i + 2) can be used
+    for i in range(3,int(math.sqrt(n))+1,2): #O(n^2)
+         
+        # while i divides n , print i and divide n
+        while n % i== 0: #O(n)
+            print i,
+            n = n / i
+             
+    # Condition if n is a prime
+    # number greater than 2
+    if n > 2:
+        print n
+          
+n = 555
+primeFactors(n) #O(n+n^2) (rule 1 and rule 3) Nested loops have time complexity n^2
+# by removing the non-dominent terms the time complexity is O(n^2). 
+

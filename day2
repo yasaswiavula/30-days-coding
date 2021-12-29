@@ -1,0 +1,129 @@
+#array excercises 
+
+#1.Python Program to find sum of array
+import array as arr
+def sumofarray(a): #Length of array*4 bytes
+  sum=0 #sum variable=4bytes
+  for i in range(0,len(a)): #i variable=4bytes
+    sum+=a[i]
+  return sum
+a=arr.array('i',[1,2,3,4,5]) 
+print(sumofarray(a))
+output: 15
+TC=O(N)
+SC=O(N)
+
+#2.Python Program to find largest element in an array
+import array as arr
+def LargestOfArray(a): # length of array * 4 bytes
+  largest=a[0] #4bytes
+  for i in range(0,len(a)): #i=4bytes
+     if(largest<=a[i]):
+        largest=a[i]
+  return largest      
+a=arr.array('i',[1,2,3,4,5])
+print(LargestOfArray(a))
+output: 
+5
+TC=O(N)
+SC=O(N)
+
+#3.Python Program for array rotation
+import array as arr
+def ArrayRotation(a): # length of array * 4 bytes
+    temp=a[0] #4bytes
+    for i in range(0,len(a)-1): #O(n)
+        a[i]=a[i+1]
+    a[len(a)-1]=temp
+    return a
+a=arr.array('i',[1,2,3,4,5])
+print("Original=",a)
+"""for i in range(0,len(a)-1): #how many times the array needs to be rotated
+    ArrayRotation(a)"""
+print(ArrayRotation(a))
+Output:
+Original= array('i', [1, 2, 3, 4, 5])
+array('i', [2, 3, 4, 5, 1])
+#TC=O(N)
+#SC=O(N)
+
+
+
+#4.Python Program for Reversal algorithm for array rotation
+import array as arr
+a=arr.array('i',[1,2,3,4,5])
+print("Original=",a)
+#print(a[::-1]) simple slicing method  start, stop, step: start at 0, stop at len(a), countdown by 1 
+a.reverse() #inbuilt array reverse function
+print(a)
+
+Output:
+Original= array('i', [1, 2, 3, 4, 5])
+array('i', [5, 4, 3, 2, 1])
+#TC=O(1)
+#SC=O(N) #array elements
+
+
+#5.Python Program to Split the array and add the first part to the end
+import array as arr
+def SplitArray(a): # length of array * 4 bytes
+    b=a[:len(a)//2] #floor division
+    c=a[len(a)//2:] #second half
+    return c+b
+a=arr.array('i',[1,2,3,4,5])
+print("Original=",a)
+print(SplitArray(a))
+Output:
+Original= array('i', [1, 2, 3, 4, 5])
+array('i', [3, 4, 5, 1, 2])
+#TC=O(1)
+#SC=O(N)
+
+def splitArr(a, n, k): 
+    for i in range(0, k): #O(N)
+        x = a[0]
+        for j in range(0, n-1): #O(N)
+            a[j] = a[j + 1]
+        a[n-1] = x
+a = arr.array('i',[12, 10, 5, 6, 52, 36])
+print("original=",a)
+n = len(a)
+position = n//2
+splitArr(a, n, position)
+print(a)
+output:
+original= array('i', [12, 10, 5, 6, 52, 36])
+array('i', [6, 52, 36, 12, 10, 5])
+#TC=O(N^2)
+#SC=O(N)
+
+#6.Python Program for Find reminder of array multiplication divided by n
+def RemArrMul(a,n):
+    multi=1
+    for i in range(0,len(a)):
+        multi*=a[i]
+    multi%=n #120%11=10 reminder
+    return multi
+a=arr.array('i',[1,2,3,4,5])
+print("Original=",a)
+print(RemArrMul(a,11))
+output:
+Original= array('i', [1, 2, 3, 4, 5])
+10
+#TC=O(N)
+#SC=O(N)
+
+#7.Python Program to check if given array is Monotonic
+def monotonic(a):
+    if(len(a)>2):
+        if(a[0]<a[1] and a[1]<a[2]):
+            print("Monotonic")
+        else:
+            print("Array is Not Monotonic")
+a=arr.array('i',[1,2,3,4,5])
+monotonic(a)
+
+Output:
+    Monotonic
+#TC=O(1)
+#SC=O(N)#as we have to save array size in memory

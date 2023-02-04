@@ -1,0 +1,18 @@
+# bubble sort
+# checks every two consicutive array elements, if condition is true-swap 
+# starts with right most array side
+
+
+#time complexity O(n^2)
+#space complexity O(1)
+
+a=[8,7,6,1,0,9,2]
+
+for i in range(0,len(a)):
+    for j in range(0,len(a)-i-1):
+        if a[j]>a[j+1]:
+            a[j],a[j+1]=a[j+1],a[j]
+print(a)
+
+#output
+#[0, 1, 2, 6, 7, 8, 9]

@@ -1,0 +1,13 @@
+#selection sort
+# sorted array space unsorted array space in single array
+
+a=[8,7,6,1,0,9,2]
+
+for i in range(0,len(a)):
+    for j in range(0,i+1):
+        if a[i]<a[j]:
+            a[i],a[j]=a[j],a[i]
+print(a)
+
+#output
+#[0, 1, 2, 6, 7, 8, 9]

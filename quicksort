@@ -2,6 +2,9 @@
 # uses divide and conquer 
 # first sets a pivot to one index then sorts the left side array and right side array seperately and combines all. 
 
+#time complexity O(n^2)
+#space complexity O(logn)
+
 
 def partition(array,left,right):
     pivot = array[right]

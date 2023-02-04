@@ -1,3 +1,8 @@
+#quicksort
+# uses divide and conquer 
+# first sets a pivot to one index then sorts the left side array and right side array seperately and combines all. 
+
+
 def partition(array,left,right):
     pivot = array[right]
     i = left - 1 

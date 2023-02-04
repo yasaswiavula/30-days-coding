@@ -1,0 +1,24 @@
+def partition(array,left,right):
+    pivot = array[right]
+    i = left - 1 
+    for j in range(left,right):
+        if array[j]<=pivot:
+            i=i+1 
+            (array[j],array[i]) = (array[i],array[j])
+    (array[i+1],array[right]) = (array[right],array[i+1])
+    return i+1
+    
+def quicksort(array,left,right):
+    if left < right:
+        pivotindex = partition(array,left,right)
+        quicksort(array,left,pivotindex-1)
+        quicksort(array,pivotindex+1,right)
+
+array = [8,7,6,1,0,9,2]
+left=0
+right=len(array) - 1 
+quicksort(array,left,right)
+print(array)
+
+#output
+# [0, 1, 2, 6, 7, 8, 9]

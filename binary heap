@@ -1,0 +1,25 @@
+from heapq import heapify, heappush, heappop
+  
+# Creating empty heap
+heap = []
+heapify(heap)
+  
+# Adding items to the heap using heappush function
+heappush(heap, 10)
+heappush(heap, 30)
+heappush(heap, 20)
+heappush(heap, 400)
+  
+# printing the value of minimum element
+print("Head value of heap : "+str(heap[0]))
+  
+print(heap)
+  
+element = heappop(heap)
+print(heap)
+
+
+#output
+# Head value of heap : 10
+[10, 30, 20, 400]
+[20, 30, 400]

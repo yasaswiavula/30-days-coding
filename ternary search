@@ -1,0 +1,30 @@
+# same as binary search but with less Time complexity,  Its time complexity is O(log n base 3) and that of binary search is O(log n base 2).
+
+a = [1,2,3,4,5,5]
+k=0
+l=0
+r=len(a)-1
+def ts_iterative(arr,k,l,r):
+    while l<=r:
+        mid1 = l+(r-l)//3
+        mid2 = r-(r-l)//3
+        if a[mid1] == k:
+            return mid1
+        elif a[mid2] == k:
+            return mid2
+        elif a[mid1] > k:
+            r = mid1-1
+        elif a[mid2] < k:
+            l = mid2+1
+        else:
+            l=mid1
+            r=mid2
+    return -1
+res = ts_iterative(a,k,l,r)
+if res ==-1:
+    print("not found")
+else:
+    print("found at: ", res)
+
+# output
+# found at:  0

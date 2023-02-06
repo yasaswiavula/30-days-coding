@@ -1,0 +1,18 @@
+# using python heapify create a heap list
+# using Arr[(i -1) / 2] returns its parent node.
+# Arr[(2 * i) + 1] returns its left child node.
+# Arr[(2 * i) + 2] returns its right child node.
+# after converting it into heap data structure.
+
+import heapq
+def heap(arr):
+    heapq.heapify(arr) 
+arr= [12, 11, 3, 5, 16, 7]
+heap(arr)
+saved = []
+for n in range(len(arr)):
+    saved.append(heapq.heappop(arr))
+print(saved)
+
+# output 
+# [3, 5, 7, 11, 12, 16]

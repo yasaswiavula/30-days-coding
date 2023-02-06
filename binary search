@@ -1,0 +1,23 @@
+#O(logn)
+#iterative searching
+
+def bs(a,l,r,k):
+    if(l>r):
+        return -1
+    m=(l+r)//2
+    if a[m]==k:
+        return m
+    elif a[m] < k:
+        return bs(a,m+1,r,k)
+    elif a[m] > k:
+        return bs(a,l,m,k)
+a=[1,2,3,4,5,6]
+k=7
+l=0
+r=len(a)-1
+print(a,l,r,k)
+result = bs(a,l,r,k)
+if(result != -1):
+    print("found at index: ",result)
+else:
+    print("element not found")

@@ -1,0 +1,22 @@
+# less no.of comparisions, no comparision of upper bound.
+# similar to linear search, has same time complexity but linear has 2(n+1) comparisions, n comparisions in sentinial search
+
+a = [1,3,2,4,5]
+k=4
+
+last = a[len(a)-1]
+
+a[len(a)-1] = k 
+
+i=0
+while a[i] != k:
+    i+=1
+    
+a[(len(a))-1] = last
+if i<len(a)-1 or last == a[len(a)-1]:
+    print("found at: ", i+1)
+else:
+    print("not found")
+
+# output
+# found at:  4

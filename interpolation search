@@ -1,0 +1,23 @@
+#interpolation
+#O(N)
+
+def inter(a,target):
+    
+    start = 0
+    end = len(a) - 1
+    
+    while(start < end):
+        p = ((target - a[start]) * (end - start)) // (a[end] - a[start]) + start;
+        if(p < start or p > end): return -1;
+        if(a[p] == target): return p;
+        if(target > a[p]): start = p + 1;
+        else: end = p - 1;
+    return -1;
+
+a=[2,4,5,6,8,9,13,16]
+target = 13
+result = inter(a,target)
+print("found at: ", result+1)
+
+#output
+# found at:  7

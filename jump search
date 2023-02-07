@@ -1,0 +1,26 @@
+# jump search
+# This can be done by skipping some fixed number of array elements or jumping ahead by fixed number of steps in every iteration.
+
+import math
+def jump(arr,target):
+    prev= 0
+    n=len(arr)-1
+    m=math.floor(math.sqrt(n))
+    while arr[m]<=target and m<n:
+        prev=m
+        m+=math.floor(math.sqrt(n))
+        if m>n-1: return -1 
+    for i in range(prev, n):
+        if arr[i]==target:
+            return i
+    return -1
+arr= [12,14,25,31,34,74,75,86,97,118,119]
+target = 97
+result = jump(arr,target)
+if result == -1:
+    print("not found")
+else:
+    print(target," found at: ",result+1)
+            
+#output
+# 97  found at:  9

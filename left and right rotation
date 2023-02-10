@@ -1,0 +1,22 @@
+
+
+
+arr = [144,21,356,14,445]
+d = 3
+for i in range(0,d):
+    print(i,"ith pos")
+    key = arr.pop(-1)
+    print("key", key)
+    arr.insert(0, key)
+    print(arr)
+   
+ #output
+ # 0 ith pos
+key 445
+[445, 144, 21, 356, 14]
+1 ith pos
+key 14
+[14, 445, 144, 21, 356]
+2 ith pos
+key 356
+[356, 14, 445, 144, 21]

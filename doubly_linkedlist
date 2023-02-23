@@ -1,0 +1,46 @@
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+        self.prev = None
+
+class DoublelyLinkedList:
+    def __init__(self):
+        self.head = None
+        
+    def insert(self, newnode):
+        node = self.head
+        if node is None:
+            self.head = newnode
+            return
+        else:
+            while node.next is not None:
+                node = node.next
+            newnode.prev= node
+            node.next = newnode
+    
+    def __repr__(self):
+        node = self.head
+        nodes = []
+        while node is not None:
+            nodes.append(node.data)
+            node = node.next
+        nodes.append("None")
+        return " <-> ".join(nodes)
+dlist = DoublelyLinkedList()
+# first = Node("a")
+# dlist.head = first
+# second = Node("b")
+# first.next = second
+# second.prev = first
+# third = Node("c")
+# second.next = third
+# third.prev = second
+dlist.insert(Node("a"))
+dlist.insert(Node("b"))
+dlist.insert(Node("c"))
+print(dlist)
+
+
+# Output
+# a <-> b <-> c <-> None

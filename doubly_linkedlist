@@ -18,6 +18,27 @@ class DoublelyLinkedList:
                 node = node.next
             newnode.prev= node
             node.next = newnode
+    def delete(self, target):
+        if self.head is None:
+            return -1
+        if self.head.next is None:
+            self.head = None
+            return
+        if target == self.head.data:
+            self.head= self.head.next 
+            self.head.prev = None
+            return
+        else: 
+            node = self.head.next
+            while node.next is not None:
+                if node.data == target:
+                    node.next = node.next.next
+                    node.next.prev = node.prev
+                    return
+                node = node.next
+            node.prev.next= None
+            return
+                
     
     def __repr__(self):
         node = self.head
@@ -40,7 +61,12 @@ dlist.insert(Node("a"))
 dlist.insert(Node("b"))
 dlist.insert(Node("c"))
 print(dlist)
-
+dlist.delete("a")
+print(dlist)
+dlist.delete("c")
+print(dlist)
 
 # Output
 # a <-> b <-> c <-> None
+# b <-> c <-> None
+# b <-> None

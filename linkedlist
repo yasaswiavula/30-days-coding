@@ -1,0 +1,123 @@
+# represents each node of linkedlist
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+        
+    def __repr__(self):
+        return self.data
+
+# A class to represent linkedlist
+class LinkedList:
+    def __init__(self):
+        self.head = None
+    
+    def __repr__(self):
+        node = self.head
+        nodes = []
+        while node is not None:
+            nodes.append(node.data)
+            node = node.next
+        nodes.append("None")
+        return " -> ".join(nodes)
+        
+    def __iter__(self):
+        node = self.head
+        while node is not None:
+            yield node
+            node = node.next
+            
+    def add_first(self,node):
+        node.next = self.head
+        self.head = node
+    
+    def add_last(self,node):
+        if self.head is None:
+            self.head = node
+            return
+        for i in self:
+            pass
+        i.next = node
+        
+    def add_middle(self, target_node, new):
+        if self.head is None:
+            return -1
+        for node in self:
+            if node.data == target_node:
+                new.next = node.next
+                node.next = new
+                return
+    def delete_node(self, target):
+        if self.head is None:
+            return -1
+        if self.head.data == target:
+            self.head = self.head.next
+            return
+        prev_node = self.head
+        for node in self:
+            if node.data == target:
+                prev_node.next = node.next
+                return
+            prev_node = node
+#checking whether the LinkedList class is functioning or not
+llist = LinkedList()
+print(llist)
+first_node = Node("a")
+llist.head = first_node
+print(llist)
+second_node = Node("b")
+first_node.next = second_node
+print(llist)
+Third_node = Node("c")
+second_node.next = Third_node
+print(llist)
+
+#counting the length of linkedlist
+count=0
+curr = llist.head
+while(curr is not None):
+    count+=1 
+    curr = curr.next
+print(count)
+
+
+#traverse / iterate through LinkedList
+for node in llist:
+    print(node)
+    
+#singly-linked-list insertion
+# 1. insert at beginning
+llist.add_first(Node("alphabet"))
+print(llist)
+
+# 2. Insert at ending
+llist.add_last(Node("d"))
+print(llist)
+
+# 3. Insert in middle
+llist.add_middle("c",Node("middle"))
+print(llist)
+llist.add_middle("a",Node("apple"))
+print(llist)
+
+# Delete a Node
+llist.delete_node("a")
+print(llist)
+
+
+
+
+Output: Copy
+None
+a -> None
+a -> b -> None
+a -> b -> c -> None
+3
+a
+b
+c
+alphabet -> a -> b -> c -> None
+alphabet -> a -> b -> c -> d -> None
+alphabet -> a -> b -> c -> middle -> d -> None
+alphabet -> a -> apple -> b -> c -> middle -> d -> None
+alphabet -> apple -> b -> c -> middle -> d -> None

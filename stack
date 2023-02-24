@@ -1,0 +1,67 @@
+# list
+# collections.deque
+# queue.LifoQueue
+
+#list
+stack = []
+
+stack.append(1)
+stack.append(2)
+stack.append(3)
+stack.append(4)
+stack.append(5)
+print("list")
+print(stack)
+
+stack.pop()
+print(stack)
+stack.pop()
+print(stack)
+print("\n")
+# collections.deque
+from collections import deque
+stack=deque()
+stack.append("a")
+stack.append("b")
+stack.append("c")
+print("collections.deque")
+print(stack)
+
+stack.pop()
+print(stack)
+print("\n")
+# queue.LifoQueue
+from queue import LifoQueue
+stack = LifoQueue(maxsize=4)
+print("queue.LifoQueue")
+print("queue size: ",stack.qsize()," before insertion")
+stack.put("X")
+stack.put("XX")
+stack.put("XXX")
+stack.put("XXXX")
+print("queue size: ",stack.qsize())
+print("popped element: ",stack.get()) #.get() function acts as pop()
+print("queue size: ",stack.qsize())
+    
+# output
+# list
+[1, 2, 3, 4, 5]
+[1, 2, 3, 4]
+[1, 2, 3]
+
+
+collections.deque
+deque(['a', 'b', 'c'])
+deque(['a', 'b'])
+
+
+queue.LifoQueue
+queue size:  0  before insertion
+queue size:  4
+popped element:  XXXX
+queue size:  3
+Report Bug
+
+
+
+

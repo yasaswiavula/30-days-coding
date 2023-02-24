@@ -1,6 +1,7 @@
 # list
 # collections.deque
 # queue.LifoQueue
+# linkedlist 
 
 #list
 stack = []
@@ -42,6 +43,55 @@ stack.put("XXXX")
 print("queue size: ",stack.qsize())
 print("popped element: ",stack.get()) #.get() function acts as pop()
 print("queue size: ",stack.qsize())
+print("\n")
+
+#Linkedlist
+class Node:
+    def __init__(self,data):
+        self.data = data
+        self.next = None
+class LinkedList_Stack:
+    def __init__(self):
+        self.head = None
+    def push(self,newnode):
+        if self.head is None:
+            self.head = newnode
+            return
+        node = self.head
+        self.head = newnode
+        newnode.next = node
+        return
+    def pop(self):
+        if self.head is None:
+            return -1
+        self.head=self.head.next
+        return
+    
+    def __repr__(self):
+        node = self.head
+        nodes = []
+        while node:
+            nodes.append(node.data)
+            node = node.next
+        nodes.append("None")
+        return " -> ".join(nodes)
+stack = LinkedList_Stack()
+stack.push(Node("a"))
+stack.push(Node("b"))
+stack.push(Node("c"))
+stack.push(Node("d"))
+print("linkedlist")
+print(stack)
+stack.pop()
+print(stack)
+stack.pop()
+print(stack)
+stack.pop()
+print(stack)
+stack.pop()
+print(stack)
+stack.pop()
+print(stack)
     
 # output
 # list
@@ -61,6 +111,14 @@ queue size:  4
 popped element:  XXXX
 queue size:  3
 Report Bug
+
+Linkedlist
+d -> c -> b -> a -> None
+c -> b -> a -> None
+b -> a -> None
+a -> None
+None
+stack is Empty
 
 
 

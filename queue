@@ -1,0 +1,52 @@
+#queue
+#fifo
+# can access both ends
+#un-bounded
+#bounded
+#double ended
+
+#list
+list = []
+
+list.append(1)
+list.append(2)
+list.append(3)
+print(list)
+
+list.pop(0)
+print(list)
+
+#deque
+
+from collections import deque
+
+queue = deque()
+
+queue.append("a")
+queue.append("b")
+queue.append("c")
+print(queue)
+
+queue.popleft()
+print(queue)
+
+#Queue
+
+from queue import Queue
+
+q = Queue(maxsize = 4)
+
+q.put("X")
+q.put("XX")
+q.put("XXX")
+q.put("XXXX")
+
+print(q.get())
+
+
+#output
+[1, 2, 3]
+[2, 3]
+deque(['a', 'b', 'c'])
+deque(['b', 'c'])
+X

@@ -1,0 +1,93 @@
+#binary tree
+class tree:
+    def __init__(self,data):
+        self.data = data
+        self.left = None
+        self.right = None
+        
+    def insert(self, data):
+        if self.data:
+            if data < self.data:
+                if self.left is None: 
+                    self.left = tree(data)
+                else:
+                    self.left.insert(data)
+            elif data > self.data:
+                if self.right is None:
+                    self.right = tree(data)
+                else:
+                    self.right.insert(data)
+                  
+    def printtree(self):
+        if self.left:
+            self.left.printtree()
+        print(self.data)
+        if self.right:
+            self.right.printtree()
+            
+    def inorder(self,root):
+        #inorder left->root->right
+        res = []
+        if root:
+            res = self.inorder(root.left)
+            res.append(root.data)
+            res += self.inorder(root.right)
+        return res
+        
+    def preorder(self,root):
+        #preorder root->left->right
+        res = []
+        if root:
+            res.append(root.data)
+            res += self.preorder(root.left)
+            res += self.preorder(root.right)
+        return res    
+    
+    def postorder(self,root):
+        #postorder left->right->root
+        res = []
+        if root:
+            res = self.postorder(root.left)
+            res += self.postorder(root.right)
+            res.append(root.data)
+        return res    
+    
+root = tree(10)
+root.insert(12)
+root.insert(7)
+root.insert(11)
+root.insert(3)
+
+print("#expected preorder root->left->right: 10, 7, 3, 12, 11")
+print(root.preorder(root))
+print("#expected inorder left->root->right: 3, 7, 10, 11, 12")
+print(root.inorder(root))
+print("#expected postorder left->right->root: 3, 7, 11, 12, 10")
+print(root.postorder(root))
+
+
+"""
+second example:
+
+root = tree(27)
+root.insert(14)
+root.insert(35)
+root.insert(10)
+root.insert(19)
+root.insert(31)
+root.insert(42)
+print("#expected preorder root->left->right: [27, 14, 10, 19, 35, 31, 42]")
+print(root.preorder(root))
+print("#expected inorder left->root->right: [10, 14, 19, 27, 31, 35, 42]")
+print(root.inorder(root))
+print("#expected postorder left->right->root: [[10, 19, 14, 31, 42, 35, 27]]")
+print(root.postorder(root))
+"""
+
+# output
+#expected preorder root->left->right: 10, 7, 3, 12, 11
+[10, 7, 3, 12, 11]
+#expected inorder left->root->right: 3, 7, 10, 11, 12
+[3, 7, 10, 11, 12]
+#expected postorder left->right->root: 3, 7, 11, 12, 10
+[3, 7, 11, 12, 10]

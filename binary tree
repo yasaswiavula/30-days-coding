@@ -1,0 +1,61 @@
+class treenode:
+    def __init__(self, data):
+        self.data = data
+        self.childern = []
+    def add_child(self, node):
+        self.childern.append(node)
+    def remove_child(self, node):
+        self.childern.remove(node)
+    def return_childern(self):
+        return self.childern
+    def dfs(self, node):
+        print(node.data)
+        for child in self.childern:
+            child.dfs(child)
+    def bfs(self,node):
+        queue = [node]
+        while queue:
+            current = queue.pop(0)
+            print(current.data)
+            for child in current.childern:
+                queue.append(child)
+    def level_by_level(self, node):
+        queue = [node]
+        while queue:
+            current = queue.pop(0)
+            print(current.data)
+            for child in current.childern:
+                queue.append(child)
+    
+root = treenode("A")
+b = treenode("B")
+c = treenode("C")
+d = treenode("D")
+e = treenode("E")
+
+root.add_child(b)
+root.add_child(c)
+b.add_child(d)
+d.add_child(e)
+
+print("depth first search")
+root.dfs(root)
+print("breadth first search")
+root.bfs(root)
+
+# output
+depth first search
+A
+B
+D
+E
+C
+breadth first search
+A
+B
+C
+D
+E
+Report Bug
+
+

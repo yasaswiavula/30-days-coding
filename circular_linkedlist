@@ -6,7 +6,7 @@ class Node:
 class CircularLinkedList:
     def __init__(self):
         self.head = None
-        
+         
     def insert(self, newnode):
         node = self.head
         newnode.next = self.head

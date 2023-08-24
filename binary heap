@@ -10,7 +10,7 @@ heappush(heap, 30)
 heappush(heap, 20)
 heappush(heap, 400)
   
-# printing the value of minimum element
+# printing the value of minimum element 
 print("Head value of heap : "+str(heap[0]))
   
 print(heap)
